@@ -5,8 +5,11 @@ inputs:
   target-file:
     description: The file to run the sed command on
     required: true
-  sed-command:
-    description: sed command to run
+  sed-regex-match:
+    description: the regex match to find and replace
+    required: true
+  sed-new-value:
+    description: The string to fill in
     required: true
   destination-github-username:
     description: Name of the destination username/organization
@@ -53,7 +56,8 @@ runs:
   image: Dockerfile
   args:
     - '${{ inputs.target-file}}'
-    - '${{ inputs.sed-command }}'
+    - '${{ inputs.sed-regex-match}}'
+    - '${{ inputs.sed-new-value}}'
     - '${{ inputs.destination-github-username }}'
     - '${{ inputs.destination-repository-name }}'
     - '${{ inputs.github-server }}'
