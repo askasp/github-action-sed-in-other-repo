@@ -1,6 +1,6 @@
 name: Run sed to replace in side a file in another repository
 description: >-
-	Usefull to update docker container tags in a gitops setup for automatically triggering deploy
+  Usefull to update docker container tags in a gitops setup for automatically triggering deploy
 inputs:
   target-file:
     description: The file to run the sed command on
