@@ -54,8 +54,9 @@ echo "[+] running now"
 # sed -i 's/$SED_REGEX_MATCH/$SED_NEW_VALUE/g' $CLONE_DIR/$TARGET_FILE
 
 echo "awk '{sub(/$SED_REGEX_MATCH/,"$SED_NEW_VALUE"); print}'  $CLONE_DIR/$TARGET_FILE "
-awk '{sub(/$SED_REGEX_MATCH/,"$SED_NEW_VALUE"); print}'  $CLONE_DIR/$TARGET_FILE
-awk '{sub(/$SED_REGEX_MATCH/,"$SED_NEW_VALUE"); print}'  $CLONE_DIR/$TARGET_FILE > tmpfile && mv tmpfile $CLONE_DIR/$TARGET_FILE
+awk '{sub(/$SED_REGEX_MATCH/,$SED_NEW_VALUE); print}'  $CLONE_DIR/$TARGET_FILE
+echo "first succeeded"
+awk '{sub(/$SED_REGEX_MATCH/,$SED_NEW_VALUE); print}'  $CLONE_DIR/$TARGET_FILE > tmpfile && mv tmpfile $CLONE_DIR/$TARGET_FILE
 
 ORIGIN_COMMIT="https://$GITHUB_SERVER/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
 COMMIT_MESSAGE="${COMMIT_MESSAGE/ORIGIN_COMMIT/$ORIGIN_COMMIT}"
