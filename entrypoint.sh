@@ -50,7 +50,7 @@ ls -la "$CLONE_DIR"
 echo "[+] Running sed command on file $TARGET_FILE in $CLONE_DIR"
 echo "[+] running now"
 echo "sed -i 's/$SED_REGEX_MATCH/$SED_NEW_VALUE/g' $CLONE_DIR/$TARGET_FILE"
-sed 's/tag.*/tag: "0.0.4"/g' $CLONE_DIR/$TARGET_FILE
+sed 's/'"$SED_REGEX_MATCH"'/'"$SED_NEW_VALUE"'/g' $CLONE_DIR/$TARGET_FILE
 sed -i 's/$SED_REGEX_MATCH/$SED_NEW_VALUE/g' $CLONE_DIR/$TARGET_FILE
 
 # echo "awk '{sub(/$SED_REGEX_MATCH/,"$SED_NEW_VALUE"); print}'  $CLONE_DIR/$TARGET_FILE "
